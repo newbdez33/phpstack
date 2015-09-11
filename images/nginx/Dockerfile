@@ -24,6 +24,7 @@ RUN ["mkdir", "-p", "/var/run/php5-fpm"]
 # Add configuration files
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD php.ini /etc/php5/fpm/conf.d/40-custom.ini
+ADD xextra.conf /etc/php5/fpm/pool.d/xextra.conf
 ADD xtc.vhost /etc/nginx/sites-enabled/xtc.vhost
 
 # Expose volumes
