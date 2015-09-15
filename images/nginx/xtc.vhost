@@ -1,5 +1,33 @@
 server {
-  server_name mobile.api.viewspeaker.dog mobile.viewspeaker.dog;
+  server_name mobile.viewspeaker.com;
+  root        /var/www/xtc;
+  index       index.php;
+
+  client_max_body_size 100M;
+  fastcgi_read_timeout 1800;
+
+  location / {
+    try_files $uri $uri/ /admin/index.php;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+    expires       max;
+    log_not_found off;
+    access_log    off;
+  }
+
+  location ~ \.php$ {
+    try_files     $uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    include       fastcgi_params;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_pass  unix:/var/run/php5-fpm.sock;
+  }
+}
+
+server {
+  server_name mobile.api.viewspeaker.com;
   root        /var/www/xtc;
   index       index.php;
 
@@ -18,6 +46,7 @@ server {
 
   location ~ \.php$ {
     try_files     $uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
     include       fastcgi_params;
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
