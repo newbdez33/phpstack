@@ -1,4 +1,5 @@
 front:
+  restart: always
   build: images/nginx
   ports:
     - "80:80"
@@ -9,6 +10,7 @@ front:
     - /var/www:/var/www
 
 memcached:
+  restart: always
   image: tutum/memcached
   ports:
     - "11211:11211"
