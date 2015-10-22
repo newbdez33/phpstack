@@ -3,3 +3,4 @@
 0 1 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server refresh_user
 */2 6-23 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server register_user
 0 7-23/5 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server visit_rand
+* * * * * touch /tmp/cron_touched
