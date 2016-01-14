@@ -1,5 +1,5 @@
 server {
-  server_name mobile.viewspeaker.com;
+  server_name mobile.viewspeaker.com mobile.viewspeaker.cat;
   root        /var/www/xtc;
   index       index.php;
 
@@ -27,7 +27,7 @@ server {
 }
 
 server {
-  server_name mobile.api.viewspeaker.com;
+  server_name mobile.api.viewspeaker.com mobile.api.viewspeaker.cat;
   root        /var/www/xtc;
   index       index.php;
 
