@@ -1,5 +1,6 @@
 0 0 * * * /usr/bin/php /var/www/xtc/sh/prepare_daily_directory.php
 30 1 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server rand_user
+0 * * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_jobs ranking_tags
 0 1 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server refresh_user
 */2 6-23 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server register_user
 0 7-23/5 * * * /usr/bin/php /var/www/xtc/admin/cron.php cron_upload_server visit_rand
