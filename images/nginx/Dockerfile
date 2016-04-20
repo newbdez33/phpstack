@@ -1,7 +1,7 @@
 FROM tutum/nginx:latest
 
 # Only use stable sources
-RUN rm -rf /etc/apt/sources.list.d/proposed.list
+#RUN rm -rf /etc/apt/sources.list.d/proposed.list
 
 # Install packages
 RUN apt-get update
@@ -14,7 +14,8 @@ RUN apt-get install -y \
   php5-mcrypt \
   php5-gd \
   php5-memcached \
-  php5-curl 
+  php5-curl \
+  php5-gearman
 
 # Create required directories
 RUN ["mkdir", "-p", "/var/log/supervisor"]

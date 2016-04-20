@@ -6,6 +6,7 @@ front:
     - "9000:9000"
   links:
     - memcached:memcached
+    - "gearman"
   volumes:
     - /var/www:/var/www
   extra_hosts:
@@ -18,3 +19,11 @@ memcached:
     - "11211:11211"
   environment:
     MEMCACHED_PASS: 12347890
+
+gearman:
+  restart: always
+  build: images/gearman
+  ports:
+    - "4730:4730"
+  volumes:
+    - /var/www:/var/www
