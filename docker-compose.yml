@@ -5,20 +5,11 @@ front:
     - "80:80"
     - "9000:9000"
   links:
-    - memcached:memcached
     - "gearman"
   volumes:
     - /var/www:/var/www
   extra_hosts:
-    - "phpstack_mysql_1:192.168.0.193"
-
-memcached:
-  restart: always
-  image: tutum/memcached
-  ports:
-    - "11211:11211"
-  environment:
-    MEMCACHED_PASS: 12347890
+    - "phpstack_mysql_1:192.168.33.193"
 
 gearman:
   restart: always
