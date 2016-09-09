@@ -16,7 +16,8 @@ RUN apt-get install -y \
   php5-gd \
   php5-memcached \
   php5-curl \
-  php5-gearman
+  php5-gearman \
+  exiftool
 
 # Create required directories
 RUN ["mkdir", "-p", "/var/log/supervisor"]
