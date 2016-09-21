@@ -54,3 +54,32 @@ server {
     fastcgi_pass  unix:/var/run/php5-fpm.sock;
   }
 }
+
+server {
+  server_name viewspeaker.com www.viewspeaker.com;
+  root        /var/www/vs;
+  index       index.html;
+
+  client_max_body_size 100M;
+  fastcgi_read_timeout 1800;
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+    expires       max;
+    log_not_found off;
+    access_log    off;
+  }
+
+  location ~ \.php$ {
+    try_files     $uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    include       fastcgi_params;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param PHP_VALUE "upload_max_filesize = 100M \n post_max_size=100M";
+    fastcgi_pass  unix:/var/run/php5-fpm.sock;
+  }
+}
