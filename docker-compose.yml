@@ -9,7 +9,7 @@ front:
   volumes:
     - /var/www:/var/www
   extra_hosts:
-    - "phpstack_mysql_1:192.168.33.193"
+    - "phpstack_mysql_1:192.168.0.164"
 
 gearman:
   restart: always
@@ -18,3 +18,4 @@ gearman:
     - "4730:4730"
   volumes:
     - /var/www:/var/www
+
