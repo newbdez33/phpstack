@@ -9,3 +9,6 @@ USER root
 RUN apt-get update
 RUN apt-get install -y mysql-client
 
+RUN echo "Asia/Hong_Kong" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
